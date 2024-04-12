@@ -4,7 +4,6 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const path = require('path');
 const config = require('./_config');
-const config = require('./_config');
 
 // Define routes
 let index = require('./routes/index');
@@ -17,19 +16,19 @@ const app = express();
 
 const MONGODB_URI =
   process.env.MONGODB_URI || config.mongoURI[app.settings.env];
-mongoose.connect(MONGODB_URI, (err) => {
-  if (err) {
-    console.log(err);
-  } else {
-    console.log(`Connected to Database: ${MONGODB_URI}`);
+mongoose.connect(
+  MONGODB_URI,
+  { useNewUrlParser: true, useUnifiedTopology: true },
+  (err) => {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log(`Connected to Database: ${MONGODB_URI}`);
+    }
   }
-});
+);
 
 // test if the database has connected successfully
-let db = mongoose.connection;
-db.once('open', () => {
-  console.log('Database connected successfully');
-});
 // let db = mongoose.connection;
 // db.once('open', ()=>{
 //     console.log('Database connected successfully')
