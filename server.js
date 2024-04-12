@@ -35,9 +35,6 @@ db.once('open', () => {
 //     console.log('Database connected successfully')
 // })
 
-// Initializing the app
-const app = express();
-
 // View Engine
 app.set('view engine', 'ejs');
 
