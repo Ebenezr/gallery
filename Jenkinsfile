@@ -21,6 +21,12 @@ pipeline {
             steps {
                 sh 'npm test'
             }
+            post {
+                failure {
+                    emailext body: 'Pipeline Failed', recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']], subject: 'Pipeline Failed'
+                }
+
+            }
         }
     }
 }
