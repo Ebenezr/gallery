@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    environment {
+        MONGODB_URI='mongodb+srv://ebenezarbukosia1:ChXTnWKUOjQml3rL@cluster0.aa1xofc.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'
+    }
     tools {
         nodejs 'nodejs'
     }
