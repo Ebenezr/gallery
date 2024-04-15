@@ -62,7 +62,7 @@ pipeline {
             post {
                 success {
                     slackSend (channel: '#week-2-ip1', color: '#00FF00', message: "SUCCESS: Test Stage of Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (https://gallery-b4yh.onrender.com)")
-                     emailext attachLog: true, body: EMAIL_BODY, subject: EMAIL_SUBJECT_SUCCESS,to: EMAIL_RECEPIENT
+
                 }
                 failure {
                     slackSend (channel: '#week-2-ip1', color: '#FF0000', message: "FAILURE: Test Stage of Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (https://gallery-b4yh.onrender.com)")
